@@ -4,7 +4,6 @@
 
 namespace helix2d
 {
-	//ÉãÏñ»ú
 	class Camera :
 		public Painter
 	{

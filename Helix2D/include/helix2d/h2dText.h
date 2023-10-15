@@ -5,7 +5,7 @@
 
 namespace helix2d
 {
-	//×ÖÌå
+	//å­—ä½“
 	class Font
 	{
 	public:
@@ -15,10 +15,10 @@ namespace helix2d
 		Font(const std::wstring& fontFamily, size_t fontSize = 20);
 	public:
 
-		//»ñÈ¡×ÖÌå×å
+		//è·å–å­—ä½“æ—
 		std::wstring getFontFamily()const;
 
-		//»ñÈ¡×ÖºÅ
+		//è·å–å­—å·
 		size_t getFontSize()const;
 	private:
 
@@ -27,7 +27,7 @@ namespace helix2d
 		size_t fontSize;
 	};
 
-	//ÎÄ±¾
+	//æ–‡æœ¬
 	class Text :
 		public Painter
 	{
@@ -38,24 +38,24 @@ namespace helix2d
 		Text(const std::wstring& text, Font font = Font{});
 	public:
 
-		//ÉèÖÃÏÔÊ¾ÎÄ±¾
+		//è®¾ç½®æ˜¾ç¤ºæ–‡æœ¬
 		void setText(std::wstring text);
 
-		//ÉèÖÃ×ÖÌå
+		//è®¾ç½®å­—ä½“
 		void setFont(Font font);
 	public:
 
-		//»ñÈ¡ÏÔÊ¾ÎÄ±¾
+		//è·å–æ˜¾ç¤ºæ–‡æœ¬
 		std::wstring getText()const;
 
-		//»ñÈ¡×ÖÌå
+		//è·å–å­—ä½“
 		Font getFont()const;
 	public:
 
 		void Render() override;
 	private:
 
-		//ÖØĞÂ´´½¨×ÊÔ´
+		//é‡æ–°åˆ›å»ºèµ„æº
 		void recreateSources();
 	private:
 

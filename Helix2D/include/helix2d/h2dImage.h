@@ -9,7 +9,7 @@ namespace helix2d
 	class Sprite;
 	class Renderer;
 
-	//Í¼Æ¬
+	//å›¾ç‰‡
 	class Image
 	{
 		friend class Sprite;
@@ -41,16 +41,16 @@ namespace helix2d
 			D2DimgList;
 	};
 
-	//Ëõ·ÅÄ£Ê½
+	//ç¼©æ”¾æ¨¡å¼
 	enum class ScaleMode
 	{
-		//ÁÚ½üËõ·Å
+		//é‚»è¿‘ç¼©æ”¾
 		Neighbor = D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
-		//ÏßĞÔËõ·Å
+		//çº¿æ€§ç¼©æ”¾
 		Linear = D2D1_BITMAP_INTERPOLATION_MODE_LINEAR
 	};
 
-	//¾«Áé
+	//ç²¾çµ
 	class Sprite :
 		public Painter
 	{
@@ -61,11 +61,11 @@ namespace helix2d
 		explicit Sprite(const std::wstring& path);
 	public:
 
-		//´ò¿ªÍ¼Æ¬
+		//æ‰“å¼€å›¾ç‰‡
 		void open(const std::wstring& path);
 	public:
 
-		//ÉèÖÃËõ·ÅÄ£Ê½
+		//è®¾ç½®ç¼©æ”¾æ¨¡å¼
 		void setScaleMode(const ScaleMode& scaleMode);
 	private:
 

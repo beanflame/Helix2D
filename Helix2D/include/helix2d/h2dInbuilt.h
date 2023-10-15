@@ -4,7 +4,7 @@ namespace helix2d
 {
 	namespace Inbuilt
 	{
-		//³õÊ¼»¯Àà
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 		class Initialize
 		{
 		public:

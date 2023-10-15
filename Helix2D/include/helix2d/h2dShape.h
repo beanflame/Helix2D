@@ -4,7 +4,7 @@
 
 namespace helix2d
 {
-	//Ô²ĞÎ
+	//åœ†å½¢
 	class Circle :
 		public Painter
 	{
@@ -17,24 +17,24 @@ namespace helix2d
 		Circle(float radius);
 	public:
 
-		//ÉèÖÃ°ë¾¶
+		//è®¾ç½®åŠå¾„
 		void setRadius(float radiusX, float radiusY);
-		//ÉèÖÃXÖá°ë¾¶
+		//è®¾ç½®Xè½´åŠå¾„
 		void setRadiusX(float radiusX);
-		//ÉèÖÃYÖá°ë¾¶
+		//è®¾ç½®Yè½´åŠå¾„
 		void setRadiusY(float radiusY);
 	public:
 
-		//»ñÈ¡XÖá°ë¾¶
+		//è·å–Xè½´åŠå¾„
 		float getRadiusX()const;
-		//»ñÈ¡YÖá°ë¾¶
+		//è·å–Yè½´åŠå¾„
 		float getRadiusY()const;
 	public:
 
 		void Render() override;
 	};
 
-	//¾ØĞÎ
+	//çŸ©å½¢
 	class Rect :
 		public Painter
 	{
@@ -47,22 +47,22 @@ namespace helix2d
 		Rect(float side);
 	public:
 
-		//ÉèÖÃÊµ¼Ê¿í¶È
+		//è®¾ç½®å®é™…å®½åº¦
 		void setRealWidth(float width);
-		//ÉèÖÃÊµ¼Ê¸ß¶È
+		//è®¾ç½®å®é™…é«˜åº¦
 		void setRealHeight(float height);
 	public:
 
-		//»ñÈ¡¿í¶È
+		//è·å–å®½åº¦
 		float getWidth()const;
-		//»ñÈ¡¸ß¶È
+		//è·å–é«˜åº¦
 		float getHeight()const;
 	public:
 
 		void Render()override;
 	};
 
-	//Ö±Ïß
+	//ç›´çº¿
 	class Line :
 		public Painter
 	{
@@ -73,27 +73,27 @@ namespace helix2d
 		Line(Vector2 ep1, Vector2 ep2, float width = 2.0f);
 	public:
 
-		//ÉèÖÃÏßÌõ¶Ëµã
+		//è®¾ç½®çº¿æ¡ç«¯ç‚¹
 		void setEndpoint(Vector2 ep1, Vector2 ep2);
 
-		//ÉèÖÃÏßÌõ¿í¶È
+		//è®¾ç½®çº¿æ¡å®½åº¦
 		void setLineWidth(float width);
 	public:
 
-		//»ñÈ¡ÏßÌõ¶Ëµã
+		//è·å–çº¿æ¡ç«¯ç‚¹
 		void getEndpoint(Vector2& ep1, Vector2& ep2)const;
 
-		//»ñÈ¡ÏßÌõ¿í¶È
+		//è·å–çº¿æ¡å®½åº¦
 		float getLineWidth()const;
 
-		//»ñÈ¡Êµ¼Ê°üÎ§¿í¶È
+		//è·å–å®é™…åŒ…å›´å®½åº¦
 		float getRealBoundingWidth()const;
-		//»ñÈ¡Êµ¼Ê°üÎ§¸ß¶È
+		//è·å–å®é™…åŒ…å›´é«˜åº¦
 		float getRealBoundingHeight()const;
 
-		//»ñÈ¡Êµ¼Ê°üÎ§¿í¶È
+		//è·å–å®é™…åŒ…å›´å®½åº¦
 		float getBoundingWidth()const;
-		//»ñÈ¡Êµ¼Ê°üÎ§¸ß¶È
+		//è·å–å®é™…åŒ…å›´é«˜åº¦
 		float getBoundingHeight()const;
 	public:
 

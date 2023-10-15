@@ -12,7 +12,7 @@ namespace helix2d
 	class Window;
 	class Camera;
 	
-	//´°¿Ú
+	//çª—å£
 	class Window
 	{
 		friend class Renderer;
@@ -32,45 +32,45 @@ namespace helix2d
 		~Window();
 	public:
 
-		//Ìí¼Ó»­¼Ò
+		//æ·»åŠ ç”»å®¶
 		void addPainter(Painter* pPainter);	
 		void addPainter(Painter* pPainter, std::wstring name);
 
-		//ÒÆ³ı»­¼Ò
+		//ç§»é™¤ç”»å®¶
 		bool removePainter(Painter* pPainter);
 
-		//´Ó×Ó»­¼ÒÖĞ²éÕÒ»­¼Ò
+		//ä»å­ç”»å®¶ä¸­æŸ¥æ‰¾ç”»å®¶
 		Painter* findPainter(std::wstring name);
 	public:
 
-		//ÉèÖÃ´°¿Ú±³¾°ÑÕÉ«
+		//è®¾ç½®çª—å£èƒŒæ™¯é¢œè‰²
 		void setBackgroundColor(const Color& c);
 
-		//ÉèÖÃÆÚÍûÖ¡ÂÊ
+		//è®¾ç½®æœŸæœ›å¸§ç‡
 		void setFPS(unsigned int fps);
 
-		//ÉèÖÃÉãÏñ»ú£¨ÒÑÌí¼ÓµÄÉãÏñ»ú£©
+		//è®¾ç½®æ‘„åƒæœºï¼ˆå·²æ·»åŠ çš„æ‘„åƒæœºï¼‰
 		void setCamera(Camera* camera);
 
-		//ÉèÖÃÊÇ·ñÈ«ÆÁ
+		//è®¾ç½®æ˜¯å¦å…¨å±
 		void setFullScreen(bool fullScreen);
 	public:
 
-		//»ñÈ¡¿í¶È
+		//è·å–å®½åº¦
 		unsigned int getWidth()const;
-		//»ñÈ¡¸ß¶È
+		//è·å–é«˜åº¦
 		unsigned int getHeight()const;
 
-		//»ñÈ¡´°¿Ú¾ä±ú
+		//è·å–çª—å£å¥æŸ„
 		HWND getHWND()const;
 
-		//»ñÈ¡äÖÈ¾Æ÷
+		//è·å–æ¸²æŸ“å™¨
 		Renderer* getRenderer()const;
 
-		//»ñÈ¡ËùÓĞÒÑÌí¼Ó»­¼Ò
+		//è·å–æ‰€æœ‰å·²æ·»åŠ ç”»å®¶
 		std::vector<Painter*> getAllPainter()const;
 
-		//»ñÈ¡ÉãÏñ»ú
+		//è·å–æ‘„åƒæœº
 		Camera* getCamera()const;
 	public:
 
@@ -80,20 +80,20 @@ namespace helix2d
 		virtual void Tick(float deltaTime) {};
 	private:
 
-		//´´½¨´°¿Ú
+		//åˆ›å»ºçª—å£
 		void create();
 
-		//ÉèÖÃÍ¸Ã÷Ä£Ê½
+		//è®¾ç½®é€æ˜æ¨¡å¼
 		void setAlphaWindow();
 
-		//¸üĞÂ´°¿Ú
+		//æ›´æ–°çª—å£
 		void Update(float delta);
 
-		//Çå³ıÊäÈë
+		//æ¸…é™¤è¾“å…¥
 		void clearInput();
 	private:
 
-		//²éÕÒ´°¿Ú
+		//æŸ¥æ‰¾çª—å£
 		static Window* findWindow(HWND hWnd);
 	private:
 

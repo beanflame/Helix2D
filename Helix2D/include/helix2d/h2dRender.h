@@ -9,7 +9,7 @@ namespace helix2d
 	class Window;
 	class Module;
 
-	//äÖÈ¾Æ÷
+	//æ¸²æŸ“å™¨
 	class Renderer 
 	{
 		friend class Window;
@@ -20,19 +20,19 @@ namespace helix2d
 		~Renderer();
 	public:
 
-		//´´½¨Éè±¸Ïà¹Ø×ÊÔ´
+		//åˆ›å»ºè®¾å¤‡ç›¸å…³èµ„æº
 		bool createDeviceResources();
-		//Ïú»ÙÉè±¸Ïà¹Ø×ÊÔ´
+		//é”€æ¯è®¾å¤‡ç›¸å…³èµ„æº
 		void discardDeviceResources();
 	public:
 
-		//´´½¨Éè±¸ÎŞ¹Ø×ÊÔ´
+		//åˆ›å»ºè®¾å¤‡æ— å…³èµ„æº
 		static bool createDeviceIndependentResources();
-		//Ïú»ÙÉè±¸ÎŞ¹Ø×ÊÔ´
+		//é”€æ¯è®¾å¤‡æ— å…³èµ„æº
 		static void discardResources();
 	private:
 
-		//äÖÈ¾
+		//æ¸²æŸ“
 		void _render(float delta);
 	public:
 
@@ -64,12 +64,12 @@ namespace helix2d
 		Window* window;
 	};
 
-	//ÑÕÉ«
+	//é¢œè‰²
 	class Color
 	{
 	public:
 
-		//ÑÕÉ«Öµ
+		//é¢œè‰²å€¼
 		enum 
 		{
 			AliceBlue = 0xF0F8FF,
@@ -222,7 +222,7 @@ namespace helix2d
 		Color(long rgb, float a = 1.0f);
 	public:
 
-		//ÉèÖÃÑÕÉ«Öµ
+		//è®¾ç½®é¢œè‰²å€¼
 		void setColor(float r, float g, float b, float a = 1.0f);
 		void setColor(long rgb, float a = 1.0f);
 	public:
@@ -239,7 +239,7 @@ namespace helix2d
 		float a;
 	};
 
-	//»­¼Ò
+	//ç”»å®¶
 	class Painter
 	{
 		friend class Window;
@@ -249,248 +249,248 @@ namespace helix2d
 		Painter();
 	public:
 
-		//Ìí¼Ó×Ó»­¼Ò
+		//æ·»åŠ å­ç”»å®¶
 		void addPainter(Painter* pPainter);
 		void addPainter(Painter* pPainter, std::wstring name);
 
-		//Ìí¼ÓÄ£¿é
+		//æ·»åŠ æ¨¡å—
 		void addModule(Module* pMod);
 
-		//ÒÆ³ı×Ó»­¼Ò
+		//ç§»é™¤å­ç”»å®¶
 		bool removePainter(Painter* pPainter);
 
-		//ÒÆ³ıÄ£¿é
+		//ç§»é™¤æ¨¡å—
 		bool removeModule(Module* pMod);
 
-		//´Ó×Ó»­¼ÒÖĞ²éÕÒ»­¼Ò
+		//ä»å­ç”»å®¶ä¸­æŸ¥æ‰¾ç”»å®¶
 		Painter* findPainter(std::wstring name);
 	public:
 
-		//ÉèÖÃ×ø±ê
+		//è®¾ç½®åæ ‡
 		void setPos(float x, float y);
 		void setPos(Vector2 pos);
 
-		//ÉèÖÃXÖá×ø±ê
+		//è®¾ç½®Xè½´åæ ‡
 		void setPosX(float x);
-		//ÉèÖÃYÖá×ø±ê
+		//è®¾ç½®Yè½´åæ ‡
 		void setPosY(float y);
 
-		//ÉèÖÃËõ·Å
+		//è®¾ç½®ç¼©æ”¾
 		void setScale(Scale scale);
 		void setScale(float scaleX, float scaleY);
 
-		//ÉèÖÃÃªµã
+		//è®¾ç½®é”šç‚¹
 		void setAnchor(Vector2 anchor);
 		void setAnchor(float x, float y);
 
-		//ÉèÖÃĞı×ª½Ç¶È
+		//è®¾ç½®æ—‹è½¬è§’åº¦
 		void setAngle(float angle);
 
-		//ÉèÖÃÑÕÉ«
+		//è®¾ç½®é¢œè‰²
 		void setColor(Color c);
 
-		//ÉèÖÃÊÇ·ñXÖá·­×ª£¨ÉÏÏÂ·­×ª£©
+		//è®¾ç½®æ˜¯å¦Xè½´ç¿»è½¬ï¼ˆä¸Šä¸‹ç¿»è½¬ï¼‰
 		void setFlipX(bool flipX);
-		//ÉèÖÃÊÇ·ñYÖá·­×ª£¨×óÓÒ·­×ª£©
+		//è®¾ç½®æ˜¯å¦Yè½´ç¿»è½¬ï¼ˆå·¦å³ç¿»è½¬ï¼‰
 		void setFlipY(bool flipY);
 
-		//ÉèÖÃËÙ¶È
+		//è®¾ç½®é€Ÿåº¦
 		void setVelocity(Vector2 v);
 		void setVelocity(float vx, float vy);
-		//ÉèÖÃXÖáËÙ¶È
+		//è®¾ç½®Xè½´é€Ÿåº¦
 		void setVelocityX(float vx);
-		//ÉèÖÃYÖáËÙ¶È
+		//è®¾ç½®Yè½´é€Ÿåº¦
 		void setVelocityY(float vy);
 
-		//ÉèÖÃÖÊÁ¿
+		//è®¾ç½®è´¨é‡
 		void setMass(float m);
 
-		//ÉèÖÃäÖÈ¾Ë³Ğò
+		//è®¾ç½®æ¸²æŸ“é¡ºåº
 		void setOrder(size_t nOrder);
 
-		//ÉèÖÃÃû×Ö
+		//è®¾ç½®åå­—
 		void setName(std::wstring name);
 
-		//ÉèÖÃÊÇ·ñÆôÓÃTick·½·¨
+		//è®¾ç½®æ˜¯å¦å¯ç”¨Tickæ–¹æ³•
 		void enableTick(bool b);
-		//ÉèÖÃÊÇ·ñÆôÓÃRender·½·¨
+		//è®¾ç½®æ˜¯å¦å¯ç”¨Renderæ–¹æ³•
 		void enableRender(bool b);
-		//ÉèÖÃÊÇ·ñ¸üĞÂ
+		//è®¾ç½®æ˜¯å¦æ›´æ–°
 		void enableUpdate(bool b);
 	public:
 
-		//ÒÆ¶¯×ø±ê
+		//ç§»åŠ¨åæ ‡
 		void movePos(float x, float y);
 		void movePos(Vector2 pos);
 
-		//ÒÆ¶¯XÖá×ø±ê
+		//ç§»åŠ¨Xè½´åæ ‡
 		void movePosX(float x);
-		//ÒÆ¶¯YÖá×ø±ê
+		//ç§»åŠ¨Yè½´åæ ‡
 		void movePosY(float y);
 
-		//ÒÔµ±Ç°·½ÏòÇ°½ø
+		//ä»¥å½“å‰æ–¹å‘å‰è¿›
 		void moveAhead(float size);
-		//ÒÔÖ¸¶¨·½ÏòÇ°½ø
+		//ä»¥æŒ‡å®šæ–¹å‘å‰è¿›
 		void moveAhead(float size, float angle);
 
-		//Ğı×ª
+		//æ—‹è½¬
 		void rotate(float angle);
 
-		//XÖá·­×ª£¨ÉÏÏÂ·­×ª£©
+		//Xè½´ç¿»è½¬ï¼ˆä¸Šä¸‹ç¿»è½¬ï¼‰
 		void flipX();
-		//YÖá·­×ª£¨×óÓÒ·­×ª£©
+		//Yè½´ç¿»è½¬ï¼ˆå·¦å³ç¿»è½¬ï¼‰
 		void flipY();
 
-		//Ôö¼ÓËÙ¶È
+		//å¢åŠ é€Ÿåº¦
 		void addVelocity(Vector2 a);
 		void addVelocity(float ax, float ay);
-		//Ôö¼ÓXÖáËÙ¶È
+		//å¢åŠ Xè½´é€Ÿåº¦
 		void addVelocityX(float a);
-		//Ôö¼ÓYÖáËÙ¶È
+		//å¢åŠ Yè½´é€Ÿåº¦
 		void addVelocityY(float a);
 
-		//ÒÔµ±Ç°·½Ïò¼ÓËÙ
+		//ä»¥å½“å‰æ–¹å‘åŠ é€Ÿ
 		void addVelocityAhead(float size);
-		//ÒÔÖ¸¶¨·½Ïò¼ÓËÙ
+		//ä»¥æŒ‡å®šæ–¹å‘åŠ é€Ÿ
 		void addVelocityAhead(float size, float angle);
 	public:
 
-		//»ñÈ¡»­¼ÒËùÔÚ´°¿Ú
+		//è·å–ç”»å®¶æ‰€åœ¨çª—å£
 		Window* getWindow()const;
 
-		//»ñÈ¡¸¸»­¼Ò
+		//è·å–çˆ¶ç”»å®¶
 		Painter* getParent()const;
 
-		//»ñÈ¡ËùÓĞ×Ó»­¼Ò
+		//è·å–æ‰€æœ‰å­ç”»å®¶
 		std::vector<Painter*> getAllPainter()const;
-		//»ñÈ¡ËùÓĞÒÑÌí¼ÓÄ£¿é
+		//è·å–æ‰€æœ‰å·²æ·»åŠ æ¨¡å—
 		std::vector<Module*> getAllModule()const;
 
-		//»ñÈ¡×ø±ê
+		//è·å–åæ ‡
 		Vector2 getPos()const;
-		//»ñÈ¡XÖá×ø±ê
+		//è·å–Xè½´åæ ‡
 		float getPosX()const;
-		//»ñÈ¡YÖá×ø±ê
+		//è·å–Yè½´åæ ‡
 		float getPosY()const;
 
-		//»ñÈ¡Êµ¼Ê¿í¶È
+		//è·å–å®é™…å®½åº¦
 		float getRealWidth()const;
-		//»ñÈ¡Êµ¼Ê¸ß¶È
+		//è·å–å®é™…é«˜åº¦
 		float getRealHeight()const;
 
-		//»ñÈ¡Ëõ·Å
+		//è·å–ç¼©æ”¾
 		Scale getScale()const;
-		//»ñÈ¡XÖáËõ·Å
+		//è·å–Xè½´ç¼©æ”¾
 		float getScaleX()const;
-		//»ñÈ¡YÖáËõ·Å
+		//è·å–Yè½´ç¼©æ”¾
 		float getScaleY()const;
 
-		//»ñÈ¡Ãªµã
+		//è·å–é”šç‚¹
 		Vector2 getAnchor()const;
 
-		//»ñÈ¡Ğı×ª½Ç¶È
+		//è·å–æ—‹è½¬è§’åº¦
 		float getAngle()const;
 
-		//»ñÈ¡ÊÀ½ç×ø±ê
+		//è·å–ä¸–ç•Œåæ ‡
 		Vector2 getWorldPos()const;
 
-		//»ñÈ¡Êµ¼Ê×ø±ê
+		//è·å–å®é™…åæ ‡
 		Vector2 getRealPos()const;
 
-		//»ñÈ¡×óÉÏ½Ç×ø±ê£¨ÏÔÊ¾´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸Šè§’åæ ‡ï¼ˆæ˜¾ç¤ºå¤§å°ä¸‹ï¼‰
 		Vector2 getDisplayUpperleftPos()const;
 
-		//»ñÈ¡×óÉÏ½Ç×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸Šè§’åæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		Vector2 getUpperleftPos()const;
-		//»ñÈ¡×óÉÏ½ÇX×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸Šè§’Xåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getUpperleftPosX()const;
-		//»ñÈ¡×óÉÏ½ÇY×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸Šè§’Yåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getUpperleftPosY()const;
 
-		//»ñÈ¡ÓÒÏÂ½Ç×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸‹è§’åæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		Vector2 getLowerrightPos()const;
-		//»ñÈ¡ÓÒÏÂ½ÇX×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸‹è§’Xåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getLowerrightPosX()const;
-		//»ñÈ¡ÓÒÏÂ½ÇY×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸‹è§’Yåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getLowerrightPosY()const;
 
-		//»ñÈ¡ÓÒÉÏ½Ç×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸Šè§’åæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		Vector2 getUpperrightPos()const;
-		//»ñÈ¡ÓÒÉÏ½ÇX×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸Šè§’Xåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getUpperrightPosX()const;
-		//»ñÈ¡ÓÒÉÏ½ÇY×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å³ä¸Šè§’Yåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getUpperrightPosY()const;
 
-		//»ñÈ¡×óÏÂ½Ç×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸‹è§’åæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		Vector2 getLowerleftPos()const;
-		//»ñÈ¡×óÏÂ½ÇX×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸‹è§’Xåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getLowerleftPosX()const;
-		//»ñÈ¡×óÏÂ½ÇY×ø±ê£¨Ô­Ê¼´óĞ¡ÏÂ£©
+		//è·å–å·¦ä¸‹è§’Yåæ ‡ï¼ˆåŸå§‹å¤§å°ä¸‹ï¼‰
 		float getLowerleftPosY()const;
 
-		//»ñÈ¡ËÙ¶È
+		//è·å–é€Ÿåº¦
 		Vector2 getVelocity()const;
-		//»ñÈ¡XÖáËÙ¶È
+		//è·å–Xè½´é€Ÿåº¦
 		float getVelocityX()const;
-		//»ñÈ¡YÖáËÙ¶È
+		//è·å–Yè½´é€Ÿåº¦
 		float getVelocityY()const;
 
-		//»ñÈ¡ÖÊÁ¿
+		//è·å–è´¨é‡
 		float getMass()const;
 
-		//»ñÈ¡äÖÈ¾Ë³Ğò
+		//è·å–æ¸²æŸ“é¡ºåº
 		size_t getOrder()const;
 
-		//»ñÈ¡Ãû×Ö
+		//è·å–åå­—
 		std::wstring getName()const;
 	public:
 
-		//ÊÇ·ñÓëÆäËû»­¼ÒÖØµş
+		//æ˜¯å¦ä¸å…¶ä»–ç”»å®¶é‡å 
 		bool isOverlap(const Painter* other)const;
 
-		//ÊÇ·ñÆôÓÃTick·½·¨
+		//æ˜¯å¦å¯ç”¨Tickæ–¹æ³•
 		bool isEnableTick()const;
-		//ÊÇ·ñÆôÓÃRender·½·¨
+		//æ˜¯å¦å¯ç”¨Renderæ–¹æ³•
 		bool isEnableRender()const;
-		//ÊÇ·ñ¸üĞÂ
+		//æ˜¯å¦æ›´æ–°
 		bool isEnableUpdate()const;
 	public:
 
-		//»æÖÆÍ¼Ïñ
+		//ç»˜åˆ¶å›¾åƒ
 		void paint();
 		void paint(Vector2 pos, float angle);
 		void paint(Window* window);
 		void paint(Vector2 pos, float angle, Window* window);
 	public:
 
-		//Ã¿Ö¡µ÷ÓÃÒ»´Î
+		//æ¯å¸§è°ƒç”¨ä¸€æ¬¡
 		virtual void Tick(float delta) {};
 	public:
 
-		//ÉèÖÃÄ¬ÈÏÃªµã
+		//è®¾ç½®é»˜è®¤é”šç‚¹
 		static void setDefaultAnchor(Vector2 pos);
 		static void setDefaultAnchor(float x, float y);
 
-		//¸üĞÂÊôĞÔ
+		//æ›´æ–°å±æ€§
 		static void updateProperty(Window* window);
 
-		//¸üĞÂTick
+		//æ›´æ–°Tick
 		static void updateTick(Window* window, float delta);
 
-		//¸üĞÂäÖÈ¾
+		//æ›´æ–°æ¸²æŸ“
 		static void updateRender(Window* window);
 
-		//Ã¿Ö¡×îºó¸üĞÂÒ»´Î
+		//æ¯å¸§æœ€åæ›´æ–°ä¸€æ¬¡
 		static void updateEnd(Window* window, float delta);
 	protected:
 
-		//äÖÈ¾
+		//æ¸²æŸ“
 		virtual void Render() {};
 
-		//ÔÚ×Ó»­¼ÒäÖÈ¾Ö®ºóµ÷ÓÃ
+		//åœ¨å­ç”»å®¶æ¸²æŸ“ä¹‹åè°ƒç”¨
 		virtual void AfterChildRender() {};
 
-		//ÔÚ¸üĞÂÊôĞÔÊ±µ÷ÓÃ
+		//åœ¨æ›´æ–°å±æ€§æ—¶è°ƒç”¨
 		virtual void UpdateProperty() {};
 	private:
 
@@ -508,20 +508,20 @@ namespace helix2d
 		void updateProperty();
 		void updateEnd(float delta);
 		
-		//Ä£¿éÅÅĞò
+		//æ¨¡å—æ’åº
 		void sortModule();
-		//äÖÈ¾ÅÅĞò
+		//æ¸²æŸ“æ’åº
 		void sortOrder();
 	protected:
 
-		//ÏÔÊ¾¿í¶È
+		//æ˜¾ç¤ºå®½åº¦
 		float width;
-		//ÏÔÊ¾¸ß¶È
+		//æ˜¾ç¤ºé«˜åº¦
 		float height;
 
-		//Êµ¼Ê¿í¶È
+		//å®é™…å®½åº¦
 		float realWidth;
-		//Êµ¼Ê¸ß¶È
+		//å®é™…é«˜åº¦
 		float realHeight;
 
 		float angle;
@@ -550,19 +550,19 @@ namespace helix2d
 		float fFlipY;
 	private:
 
-		//Ïà¶Ô×ø±ê
+		//ç›¸å¯¹åæ ‡
 		Vector2 pos;
 
-		//ÊÀ½ç×ø±ê
+		//ä¸–ç•Œåæ ‡
 		Vector2 worldPos;
 
-		//Êµ¼Ê×ø±ê
+		//å®é™…åæ ‡
 		Vector2 realPos;
 
-		//Ğı×ª¾ØÕó
+		//æ—‹è½¬çŸ©é˜µ
 		Matrix3x2 rotationMatrix;
 
-		//Êµ¼ÊËõ·Å
+		//å®é™…ç¼©æ”¾
 		Scale realScale;
 	private:
 

@@ -9,7 +9,7 @@ namespace helix2d
 	class Painter;
 	class Window;
 
-	//Ä£¿é
+	//æ¨¡å—
 	class Module
 	{
 		friend class Painter;
@@ -17,9 +17,9 @@ namespace helix2d
 
 		enum class Type
 		{
-			//ĞŞ¸ÄÄ£¿é
+			//ä¿®æ”¹æ¨¡å—
 			Modifier,
-			//¼ì²éÄ£¿é
+			//æ£€æŸ¥æ¨¡å—
 			Detector
 		};
 	public:
@@ -29,32 +29,32 @@ namespace helix2d
 		~Module();
 	public:
 
-		//»ñÈ¡¸¸»­¼Ò
+		//è·å–çˆ¶ç”»å®¶
 		Painter* getParent()const;
 
-		//»ñÈ¡Ä£¿éÀàĞÍ
+		//è·å–æ¨¡å—ç±»å‹
 		Module::Type getModuleType()const;
 	public:
 
-		//¸üĞÂÄ£¿é
+		//æ›´æ–°æ¨¡å—
 		static void updateModule(Window* window, float delta);
 	public:
 
-		//»ñÈ¡ËùÓĞÄ£¿é
+		//è·å–æ‰€æœ‰æ¨¡å—
 		static std::vector<Module*> getAllModule();
 	protected:
 
-		//¸üĞÂ
+		//æ›´æ–°
 		virtual void Update(float delta) {};
 
-		//äÖÈ¾
+		//æ¸²æŸ“
 		virtual void BeforeRender() {};
 
-		//×ÓPainteräÖÈ¾ºó
+		//å­Painteræ¸²æŸ“å
 		virtual void AfterChildRender() {};
 	private:
 
-		//¸üĞÂÌØ¶¨ÀàĞÍÄ£¿é
+		//æ›´æ–°ç‰¹å®šç±»å‹æ¨¡å—
 		static void updateTypeModule(Window* window, float delta, Type type);
 	protected:
 
@@ -67,7 +67,7 @@ namespace helix2d
 		static std::vector<Module*> allMod;
 	};
 
-	//ÖØÁ¦
+	//é‡åŠ›
 	class Gravity :
 		public Module
 	{
@@ -76,11 +76,11 @@ namespace helix2d
 		explicit Gravity(float g = 1.0f);
 	public:
 
-		//ÉèÖÃÖØÁ¦ÏµÊı
+		//è®¾ç½®é‡åŠ›ç³»æ•°
 		void setGravity(float g);
 	public:
 
-		//»ñÈ¡ÖØÁ¦ÏµÊı
+		//è·å–é‡åŠ›ç³»æ•°
 		float getGravity()const;
 	private:
 
@@ -90,7 +90,7 @@ namespace helix2d
 		float gravity;
 	};
 
-	//ÕÚÕÖ
+	//é®ç½©
 	class Mask :
 		public Module
 	{
@@ -102,20 +102,20 @@ namespace helix2d
 		~Mask();
 	public:
 
-		//ÉèÖÃÊµ¼Ê¿í¶È
+		//è®¾ç½®å®é™…å®½åº¦
 		void setRealWidth(float width);
-		//ÉèÖÃÊµ¼Ê¿í¶È
+		//è®¾ç½®å®é™…å®½åº¦
 		void setRealHeight(float height);
 
-		//ÉèÖÃÊÇ·ñ·´×ª
+		//è®¾ç½®æ˜¯å¦åè½¬
 		void setInverse(bool inverse);
 
-		//ÉèÖÃÏà¶ÔÓÚPainter×óÉÏ½ÇµÄ×ø±ê
+		//è®¾ç½®ç›¸å¯¹äºPainterå·¦ä¸Šè§’çš„åæ ‡
 		void setPos(Vector2 pos);
 		void setPos(float x, float y);
 	public:
 
-		//»ñÈ¡Ïà¶ÔÓÚPainter×óÉÏ½ÇµÄ×ø±ê
+		//è·å–ç›¸å¯¹äºPainterå·¦ä¸Šè§’çš„åæ ‡
 		Vector2 getPos();
 	private:
 

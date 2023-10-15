@@ -10,7 +10,7 @@ namespace helix2d
 
 	class Window;
 
-	//¶şÎ¬ÏòÁ¿
+	//äºŒç»´å‘é‡
 	class Vector2
 	{
 	public:
@@ -44,35 +44,35 @@ namespace helix2d
 		operator D2D1_POINT_2F();
 	public:
 
-		//µã³Ë
+		//ç‚¹ä¹˜
 		float dot(const Vector2& vec)const;
 
-		//²æ³Ë
+		//å‰ä¹˜
 		Vector2 cross(const Vector2& vec)const;
 	public:
 
-		//»ñÈ¡×ó·¨Ïß
+		//è·å–å·¦æ³•çº¿
 		Vector2 getLeftNormalLine()const;
-		//»ñÈ¡ÓÒ·¨Ïß
+		//è·å–å³æ³•çº¿
 		Vector2 getRightNormalLine()const;
 
-		//»ñÈ¡Á½ÏòÁ¿Ö®¼ä¾àÀë
+		//è·å–ä¸¤å‘é‡ä¹‹é—´è·ç¦»
 		float getDistance(const Vector2& vec)const;
 
-		//»ñÈ¡ÏòÁ¿µÄÄ££¨³¤¶È£©
+		//è·å–å‘é‡çš„æ¨¡ï¼ˆé•¿åº¦ï¼‰
 		float getModulus()const;
 
-		//»ñÈ¡µ¥Î»ÏòÁ¿
+		//è·å–å•ä½å‘é‡
 		Vector2 getUnit()const;
 	public:
 
-		//»ñÈ¡Á½ÏòÁ¿Ö®¼ä¾àÀë
+		//è·å–ä¸¤å‘é‡ä¹‹é—´è·ç¦»
 		static float getDistance(const Vector2& vec1, const Vector2& vec2);
 
-		//µã³Ë
+		//ç‚¹ä¹˜
 		static float dot(const Vector2& vec1, const Vector2& vec2);
 
-		//²æ³Ë
+		//å‰ä¹˜
 		static Vector2 cross(const Vector2& vec1, const Vector2& vec2);
 	public:
 
@@ -80,31 +80,31 @@ namespace helix2d
 		float y;
 	};
 
-	//Ëõ·Å
+	//ç¼©æ”¾
 	using Scale = Vector2;
 
-	//3x2¾ØÕó
+	//3x2çŸ©é˜µ
 	using Matrix3x2 = D2D1::Matrix3x2F;
 
-	//ÊäÈë
+	//è¾“å…¥
 	class Input
 	{
 		friend class Window;
 	public:
 
-		//ÊÇ·ñ°´ÏÂÖ¸¶¨°´¼ü£¬ÇÒ°´ÏÂÊ±¼ä´ïµ½¶à³¤Ê±¼ä
+		//æ˜¯å¦æŒ‰ä¸‹æŒ‡å®šæŒ‰é”®ï¼Œä¸”æŒ‰ä¸‹æ—¶é—´è¾¾åˆ°å¤šé•¿æ—¶é—´
 		static bool isDown(Window* window, const KeyCode& key, float downTime = 0.0f);
 		static bool isDown(Window* window, const MouseCode& key, float downTime = 0.0f);
 
-		//ÊÇ·ñËÉ¿ªÖ¸¶¨°´¼ü
+		//æ˜¯å¦æ¾å¼€æŒ‡å®šæŒ‰é”®
 		static bool isRelease(Window* window, const KeyCode& key);
 		static bool isRelease(Window* window, const MouseCode& key);
 
-		//ÊÇ·ñµã»÷Ö¸¶¨°´¼ü£¬ÇÒµã»÷Ê±¼ä´ïµ½¶à³¤Ê±¼ä£¨Ì§ÆğÊ±£©
+		//æ˜¯å¦ç‚¹å‡»æŒ‡å®šæŒ‰é”®ï¼Œä¸”ç‚¹å‡»æ—¶é—´è¾¾åˆ°å¤šé•¿æ—¶é—´ï¼ˆæŠ¬èµ·æ—¶ï¼‰
 		static bool isUpPress(Window* window, const KeyCode& key, float downTime = 0.0f);
 		static bool isUpPress(Window* window, const MouseCode& key, float downTime = 0.0f);
 
-		//ÊÇ·ñµã»÷Ö¸¶¨°´¼ü£¨°´ÏÂÊ±£©
+		//æ˜¯å¦ç‚¹å‡»æŒ‡å®šæŒ‰é”®ï¼ˆæŒ‰ä¸‹æ—¶ï¼‰
 		static bool isDownPress(Window* window, const KeyCode& key);
 		static bool isDownPress(Window* window, const MouseCode& key);
 	private:
@@ -118,7 +118,7 @@ namespace helix2d
 		static KeyCode getLRKeyCode(const KeyCode& key, LPARAM lparam);
 	};
 
-	//Êó±ê¼üÂë
+	//é¼ æ ‡é”®ç 
 	enum class MouseCode
 	{
 		Left,
@@ -126,7 +126,7 @@ namespace helix2d
 		Right
 	};
 
-	//¼üÅÌ¼üÂë
+	//é”®ç›˜é”®ç 
 	enum class KeyCode
 	{
 		Unknown = 0,
@@ -240,44 +240,44 @@ namespace helix2d
 		Tilde = VK_OEM_3,
 	};
 
-	//ÊıÑ§¼ÆËã
+	//æ•°å­¦è®¡ç®—
 	class Math
 	{
 	public:
 
-		//Ô²ÖÜÂÊ
+		//åœ†å‘¨ç‡
 		static const float Pi;
 		static const float e;
 	public:
 
-		//½Ç¶È×ª»¡¶È
+		//è§’åº¦è½¬å¼§åº¦
 		static float getRadian(float angle);
 
-		//»¡¶È×ª½Ç¶È
+		//å¼§åº¦è½¬è§’åº¦
 		static float getAngle(float radian);
 	};
 
-	//ÈÕÖ¾
+	//æ—¥å¿—
 	class Logger
 	{
 	public:
 
-		//¾¯¸æ
+		//è­¦å‘Š
 		static void warning(std::wstring detail);
 
-		//´íÎó
+		//é”™è¯¯
 		static void error(std::wstring detail);
 
-		//ÏûÏ¢
+		//æ¶ˆæ¯
 		static void message(std::wstring detail);
 
-		//ÊÇ·ñÆôÓÃ¾¯¸æÈÕÖ¾
+		//æ˜¯å¦å¯ç”¨è­¦å‘Šæ—¥å¿—
 		static void enableWarning(bool b);
 
-		//ÊÇ·ñÆôÓÃ´íÎóÈÕÖ¾
+		//æ˜¯å¦å¯ç”¨é”™è¯¯æ—¥å¿—
 		static void enableError(bool b);
 
-		//ÊÇ·ñÆôÓÃÏûÏ¢ÈÕÖ¾
+		//æ˜¯å¦å¯ç”¨æ¶ˆæ¯æ—¥å¿—
 		static void enableMessage(bool b);
 	private:
 
