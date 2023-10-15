@@ -1,8 +1,17 @@
 cmake_minimum_required(VERSION 3.19)
-project(Helix2D C CXX)
+project(main C CXX)
 
+# C++17 - 32bit static libgcc
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "-m32")
+# set(CMAKE_CXX_FLAGS "-static")
+# set(CMAKE_CXX_FLAGS "-libgcc")
 
+# win32窗口、win32控制台
+# add_executable(space-longan-renderer WIN32 source/main.cpp)
+
+# 输出操作系统平台信息
+math(EXPR TARGET_BITS "8 * ${CMAKE_SIZEOF_VOID_P}")
 if (WIN32)
     message(STATUS "Building on Windows platform.")
 elseif (APPLE)
@@ -10,32 +19,35 @@ elseif (APPLE)
     add_compile_definitions(TARGET_OS_MAC)
 elseif (UNIX)
     message(STATUS "Building on UNIX-like OS platform.")
+elseif (MinGW)
+    message(STATUS "Building on UNIX-like OS platform.")
 endif ()
 
-include_directories(include/helix2d)
+# 输出编译器信息
+if (MSVC)
+    # MSVC utf-8
+    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/source-charset:utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/source-charset:utf-8>")
+    message(STATUS "${TARGET_BITS}bit MSVC target: MSVC ${MSVC_VERSION}")
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    # GNU utf-8
+    add_compile_options("$<$<C_COMPILER_ID:GNU>:-fexec-charset=GBK>")
+    add_compile_options("$<$<CXX_COMPILER_ID:GNU>:-fexec-charset=GBK>")
+    add_compile_options("$<$<C_COMPILER_ID:GNU>:-finput-charset=utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:GNU>:-finput-charset=utf-8>")
+    message(STATUS "${TARGET_BITS}bit GNU target: GCC ${CMAKE_C_COMPILER_VERSION}")
+else ()
+    if (CMAKE_CXX_COMPILER_ID)
+        message(FATAL_ERROR "Unsupported compiler: ${CMAKE_CXX_COMPILER_ID}")
+    else ()
+        message(FATAL_ERROR "Unsupported compiler: ${CMAKE_CXX_COMPILER}")
+    endif ()
+endif ()
 
-# add_subdirectory(source)
+# 添加头文件(*/include)
+include_directories(Helix2D/include)
+include_directories(demo/include)
 
-file(GLOB APP_SOURCES 
-    source/*.cpp source/*.c
-    source/Base/*.cpp source/Base/*.c
-    source/Inbuilt/*.cpp source/Inbuilt/*.c
-    source/Module/*.cpp source/Module/*.c
-    source/Tool/*.cpp source/Tool/*.c
-
-    source/Render/*.cpp source/Render/*.c
-    source/Render/Camera/*.cpp source/Render/Camera/*.c
-    source/Render/Image/*.cpp source/Render/Image/*.c
-    source/Render/Shape/*.cpp source/Render/Shape/*.c
-    source/Render/Text/*.cpp source/Render/Text/*.c
-    )
-
-
-
-add_library(Helix2D ${APP_SOURCES})
-
-
-#target_link_libraries(space-longan-renderer
-#        gcc
-#        opengl32
-#        )
+# 添加创建库文件的子目录
+add_subdirectory(Helix2D)
+add_subdirectory(demo)

@@ -89,7 +89,7 @@ void helix2d::Text::Render()
 	auto rect = D2D1::RectF(
 		getUpperleftPosX(), getUpperleftPosY(),
 		getLowerrightPosX(),getLowerrightPosY());
-
+	/*
 	pTarget->DrawTextW(
 		text.c_str(),
 		static_cast<UINT32>(text.size()),
@@ -97,6 +97,7 @@ void helix2d::Text::Render()
 		rect,
 		pBrush
 	);
+	*/
 }
 
 void helix2d::Text::recreateSources()
