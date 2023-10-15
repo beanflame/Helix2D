@@ -7,22 +7,19 @@ Helix2D是一个基于Direct2D的Windows图形库，该图形库注重于给予�
 
 下面是一个基础的Helix2D程序：
 
-该程序会创建一个名为`Helix2D`的窗口，大小为600x600
+该程序会创建一个名为`Helix2D`的窗口，大小为680x460
 ```C++
 #include "Helix2D/helix2d.h"
 using namespace helix2d;
 
-int main()
-{
-    Window win;
-    
-    while (true)
-    {
+int main() {
+    Window win{ L"Helix2D 0.5.0", 680, 460, nullptr, 60 };
+    win.setBackgroundColor(Color(1.0f, 148.0f / 255.0f, 53.0f / 255.0f, 1.0f));
+    while (true) {
         Sleep(16);
     }
     return 0;
 }
-
 ```
 
 
