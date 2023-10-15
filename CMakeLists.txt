@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.19)
 project(Helix2D C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -14,20 +14,28 @@ endif ()
 
 include_directories(include/helix2d)
 
+# add_subdirectory(source)
 
-add_subdirectory(source/Base)
-add_subdirectory(source/Inbuilt)
-add_subdirectory(source/Module)
-add_subdirectory(source/Tool)
+file(GLOB APP_SOURCES 
+    source/*.cpp source/*.c
+    source/Base/*.cpp source/Base/*.c
+    source/Inbuilt/*.cpp source/Inbuilt/*.c
+    source/Module/*.cpp source/Module/*.c
+    source/Tool/*.cpp source/Tool/*.c
 
-add_subdirectory(source/Render)
-add_subdirectory(source/Render/Camera)
-add_subdirectory(source/Render/Image)
-add_subdirectory(source/Render/Shape)
-add_subdirectory(source/Render/Text)
+    source/Render/*.cpp source/Render/*.c
+    source/Render/Camera/*.cpp source/Render/Camera/*.c
+    source/Render/Image/*.cpp source/Render/Image/*.c
+    source/Render/Shape/*.cpp source/Render/Shape/*.c
+    source/Render/Text/*.cpp source/Render/Text/*.c
+    )
 
 
 
+add_library(Helix2D ${APP_SOURCES})
 
 
-
+#target_link_libraries(space-longan-renderer
+#        gcc
+#        opengl32
+#        )
