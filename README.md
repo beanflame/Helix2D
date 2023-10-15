@@ -9,6 +9,7 @@ Helix2D是一个基于Direct2D的Windows图形库，该图形库注重于给予�
 
 该程序会创建一个名为`Helix2D`的窗口，大小为600x600
 ```C++
+#include "Helix2D/helix2d.h"
 using namespace helix2d;
 
 int main()
@@ -31,6 +32,7 @@ int main()
 
 该程序会创建两个分别名为`Window 1`和`Window 2`的窗口，大小分别为1000x1000，500x500
 ```C++
+#include "Helix2D/helix2d.h"
 using namespace helix2d;
 
 int main()
