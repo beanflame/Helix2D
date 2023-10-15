@@ -14,7 +14,7 @@ endif ()
 
 include_directories(include/helix2d)
 
-add_subdirectory(source)
+
 add_subdirectory(source/Base)
 add_subdirectory(source/Inbuilt)
 add_subdirectory(source/Module)
