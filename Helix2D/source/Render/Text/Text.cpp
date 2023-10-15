@@ -98,6 +98,14 @@ void helix2d::Text::Render()
 		pBrush
 	);
 	*/
+	pTarget->DrawText(
+		text.c_str(),
+		static_cast<UINT32>(text.size()),
+		textFormat,
+		rect,
+		pBrush
+	);
+	
 }
 
 void helix2d::Text::recreateSources()
