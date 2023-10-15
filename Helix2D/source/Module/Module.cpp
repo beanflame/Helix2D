@@ -163,11 +163,11 @@ void helix2d::Mask::BeforeRender()
 	auto* pFactory = window->getRenderer()->pD2D1Factory;
 	auto* pTarget = window->getRenderer()->pD2D1RenderTarget;
 
-	//¼ì²éparentÓĞÎŞ±£´æÉÏÒ»currGeometryµÄÖµ
-	if (lastGeometries.count(parent) == 0)		//ÎŞ£¬Ôò±£´æ
+	//æ£€æŸ¥parentæœ‰æ— ä¿å­˜ä¸Šä¸€currGeometryçš„å€¼
+	if (lastGeometries.count(parent) == 0)		//æ— ï¼Œåˆ™ä¿å­˜
 	{
 		lastGeometries[parent] = currGeometry;
-	}											//ÓĞ£¬Ôò²»×öÈÎºÎ¹¤×÷
+	}											//æœ‰ï¼Œåˆ™ä¸åšä»»ä½•å·¥ä½œ
 
 	if (pPathGeo == nullptr)
 	{
@@ -263,12 +263,12 @@ void helix2d::Mask::AfterChildRender()
 		isPushLayer = false;
 	}
 
-	//¼ì²éÊÇ·ñÒÑ¾­ÉèÖÃ¼°Çå³ı¹ı
-	if (lastGeometries.count(parent))		//·ñ£¬ÉèÖÃ²¢Çå³ımapÔªËØ
+	//æ£€æŸ¥æ˜¯å¦å·²ç»è®¾ç½®åŠæ¸…é™¤è¿‡
+	if (lastGeometries.count(parent))		//å¦ï¼Œè®¾ç½®å¹¶æ¸…é™¤mapå…ƒç´ 
 	{
 		currGeometry = lastGeometries[parent];
 		lastGeometries.erase(parent);
-	}										//ÊÇ£¬Ôò²»×öÈÎºÎ¹¤×÷
+	}										//æ˜¯ï¼Œåˆ™ä¸åšä»»ä½•å·¥ä½œ
 
 	SafeRelease(pPathGeo);
 }

@@ -11,7 +11,7 @@ bool Initialize::bGameDone = false;
 
 void helix2d::Inbuilt::Initialize::function(void)
 {
-	//保证文件被包含进lib
+	//淇濊瘉鏂囦欢琚寘鍚繘lib
 }
 
 Initialize::Initialize()
@@ -29,9 +29,9 @@ helix2d::Inbuilt::Initialize::~Initialize()
 	bGameDone = true;
 	Window::bAllWindowDone = true;
 
-	//等待其它线程尽快关闭
+	//绛夊緟鍏跺畠绾跨▼灏藉揩鍏抽棴
 	Sleep(1);
 	
 	Window::uninit();
-	//Image::uninit();		//既然我解决不了问题，那就让操作系统去解决吧~~~
+	//Image::uninit();		//鏃㈢劧鎴戣В鍐充笉浜嗛棶棰橈紝閭ｅ氨璁╂搷浣滅郴缁熷幓瑙ｅ喅鍚~~
 }

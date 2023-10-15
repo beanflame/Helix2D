@@ -99,7 +99,7 @@ bool helix2d::Renderer::createDeviceIndependentResources()
 
 	if (SUCCEEDED(hr))
 	{
-		// ´´½¨ WIC »æÍ¼¹¤³§£¬ÓÃÓÚÍ³Ò»´¦Àí¸÷ÖÖ¸ñÊ½µÄÍ¼Æ¬
+		// åˆ›å»º WIC ç»˜å›¾å·¥åŽ‚ï¼Œç”¨äºŽç»Ÿä¸€å¤„ç†å„ç§æ ¼å¼çš„å›¾ç‰‡
 		hr = CoCreateInstance(
 			CLSID_WICImagingFactory,
 			nullptr,
@@ -111,7 +111,7 @@ bool helix2d::Renderer::createDeviceIndependentResources()
 
 	if (SUCCEEDED(hr))
 	{
-		// ´´½¨ DirectWrite ¹¤³§
+		// åˆ›å»º DirectWrite å·¥åŽ‚
 		hr = DWriteCreateFactory(
 			DWRITE_FACTORY_TYPE_SHARED,
 			__uuidof(IDWriteFactory5),
@@ -121,7 +121,7 @@ bool helix2d::Renderer::createDeviceIndependentResources()
 
 	if (SUCCEEDED(hr))
 	{
-		// ´´½¨ÎÄ±¾¸ñÊ½»¯¶ÔÏó
+		// åˆ›å»ºæ–‡æœ¬æ ¼å¼åŒ–å¯¹è±¡
 		hr = pDWriteFactory->CreateTextFormat(
 			L"",
 			nullptr,
@@ -146,7 +146,7 @@ bool helix2d::Renderer::createDeviceResources()
 {
 	HRESULT hr = S_OK;
 
-	//ÐèÒªÓÅ»¯Âß¼­
+	//éœ€è¦ä¼˜åŒ–é€»è¾‘
 	for (auto& imgPair : Image::imgList)
 	{
 		if (imgPair.second != nullptr &&
@@ -202,7 +202,7 @@ bool helix2d::Renderer::createDeviceResources()
 
 	if (SUCCEEDED(hr))
 	{
-		// ´´½¨»­Ë¢
+		// åˆ›å»ºç”»åˆ·
 		hr = pD2D1RenderTarget->CreateSolidColorBrush(
 			D2D1::ColorF(D2D1::ColorF::White),
 			&pD2D1SolidBrush
@@ -239,7 +239,7 @@ void helix2d::Renderer::_render(float delta)
 
 	HRESULT hr = S_OK;
 
-	//»æÖÆ±³¾°
+	//ç»˜åˆ¶èƒŒæ™¯
 	pD2D1RenderTarget->BeginDraw();
 	pD2D1RenderTarget->Clear(window->backgroundColor);
 

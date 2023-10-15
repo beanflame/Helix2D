@@ -295,7 +295,7 @@ void helix2d::Input::addKeyCode(Window* window, const KeyCode& key)
 		key
 	);
 
-	//ÅĞ¶ÏÖ®Ç°ÊÇ·ñÊÇËÉ¿ªµÄ
+	//åˆ¤æ–­ä¹‹å‰æ˜¯å¦æ˜¯æ¾å¼€çš„
 	if (it == window->downKey.end())
 	{
 		window->downKey.push_back(key);
@@ -313,13 +313,13 @@ void helix2d::Input::removeKeyCode(Window* window, const KeyCode& key)
 		key
 	);
 
-	//ÅĞ¶ÏÖ®Ç°ÊÇ·ñÊÇ°´ÏÂµÄ
+	//åˆ¤æ–­ä¹‹å‰æ˜¯å¦æ˜¯æŒ‰ä¸‹çš„
 	if (it != window->downKey.end())
 	{
 		window->downKey.erase(it);
 		window->upPressKey.push_back(key);
 
-		//²»ĞŞ¸ÄÊ±¼ä£¬ÒÔ±¸Ê¹ÓÃ
+		//ä¸ä¿®æ”¹æ—¶é—´ï¼Œä»¥å¤‡ä½¿ç”¨
 	}
 	else
 	{
@@ -366,7 +366,7 @@ helix2d::KeyCode helix2d::Input::getLRKeyCode(const KeyCode& key, LPARAM lparam)
 {
 	if ((lparam & 0x01000000) == 0)
 	{
-		//×ó¼ü
+		//å·¦é”®
 		switch (key)
 		{
 		case KeyCode::Ctrl:
@@ -381,7 +381,7 @@ helix2d::KeyCode helix2d::Input::getLRKeyCode(const KeyCode& key, LPARAM lparam)
 	}
 	else
 	{
-		//ÓÒ¼ü
+		//å³é”®
 		switch (key)
 		{
 		case KeyCode::Ctrl:

@@ -21,7 +21,7 @@ helix2d::Window::Window(
 	unsigned int fps
 )
 {
-	//±£Ö¤InitializeÎÄ¼şÄÚÈİ±»°üº¬½ølib
+	//ä¿è¯Initializeæ–‡ä»¶å†…å®¹è¢«åŒ…å«è¿›lib
 	Initialize::function();
 
 	{
@@ -146,20 +146,20 @@ bool helix2d::Window::removePainter(Painter* pPainter)
 
 helix2d::Painter* helix2d::Window::findPainter(std::wstring name)
 {
-	//¿ÕÃû×Ö£¨Ä¬ÈÏÃû×Ö£©Ôò²»²éÕÒ
+	//ç©ºåå­—ï¼ˆé»˜è®¤åå­—ï¼‰åˆ™ä¸æŸ¥æ‰¾
 	if (name.empty())
 	{
 		return nullptr;
 	}
 
-	//¿ªÊ¼²éÕÒPainter
+	//å¼€å§‹æŸ¥æ‰¾Painter
 	auto it = std::find_if(painterList.begin(), painterList.end(),
 		[name](Painter* painter) {
 			return painter->getName() == name;
 		}
 	);
 
-	//¼ì²âÊÇ·ñÓĞ¸ÃPainter
+	//æ£€æµ‹æ˜¯å¦æœ‰è¯¥Painter
 	if (it == painterList.end())
 	{
 		return nullptr;
@@ -272,13 +272,13 @@ void helix2d::Window::create()
 		if (this->parent == nullptr)
 		{
 			WCHAR className[28] = { 0 };
-			swprintf_s(className, L"Helix2D %zd", ++ordinal);		//·ÖÅäÀàÃû±êÊ¶
+			swprintf_s(className, L"Helix2D %zd", ++ordinal);		//åˆ†é…ç±»åæ ‡è¯†
 			this->wc.lpszClassName = className;
 			RegisterClassExW(&this->wc);
 		}
 		else
 		{
-			//Èç¹ûÓĞ¸¸´°¿Ú£¬ÔòÊ¹ÓÃ¸¸´°¿ÚÀàÃû±êÊ¶
+			//å¦‚æœæœ‰çˆ¶çª—å£ï¼Œåˆ™ä½¿ç”¨çˆ¶çª—å£ç±»åæ ‡è¯†
 			this->wc.lpszClassName = this->parent->wc.lpszClassName;
 
 			hwParent = this->parent->hWnd;
@@ -286,15 +286,15 @@ void helix2d::Window::create()
 			RegisterClassExW(&this->wc);
 		}
 
-		// ¼ÆËã´°¿Ú´óĞ¡
+		// è®¡ç®—çª—å£å¤§å°
 		DWORD dwStyle = (WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX & ~WS_THICKFRAME) | WS_EX_LAYERED;
 		RECT wr = { 0, 0, static_cast<LONG>(this->width), static_cast<LONG>(this->height) };
 		::AdjustWindowRectEx(&wr, dwStyle, FALSE, NULL);
-		// »ñÈ¡ĞÂµÄ¿í¸ß
-		auto n_width = static_cast<int>(wr.right - wr.left);		//ÕâÀïµÄ¿í¸ß°üÀ¨±êÌâÀ¸µÈ³¤¶È
+		// è·å–æ–°çš„å®½é«˜
+		auto n_width = static_cast<int>(wr.right - wr.left);		//è¿™é‡Œçš„å®½é«˜åŒ…æ‹¬æ ‡é¢˜æ ç­‰é•¿åº¦
 		auto n_height = static_cast<int>(wr.bottom - wr.top);
 
-		// »ñÈ¡ÆÁÄ»·Ö±æÂÊ
+		// è·å–å±å¹•åˆ†è¾¨ç‡
 		int screenWidth = ::GetSystemMetrics(SM_CXSCREEN);
 		int screenHeight = ::GetSystemMetrics(SM_CYSCREEN);
 
@@ -315,7 +315,7 @@ void helix2d::Window::create()
 
 		if (this->hWnd == 0)
 		{
-			//´´½¨´°¿ÚÊ§°Ü´¦Àí
+			//åˆ›å»ºçª—å£å¤±è´¥å¤„ç†
 			UnregisterClassW(this->wc.lpszClassName, HINST_THISCOMPONENT);
 		}
 		else
@@ -335,10 +335,10 @@ void helix2d::Window::setAlphaWindow()
 		return;
 	}
 
-	//µ±Ç°ÑÕÉ«
+	//å½“å‰é¢œè‰²
 	DWORD currColor{};
 
-	//ÑÕÉ«ÊÇ·ñÎªÍ¸Ã÷»ìºÏ
+	//é¢œè‰²æ˜¯å¦ä¸ºé€æ˜æ··åˆ
 	BOOL isOpaque{};
 
 	auto hr = ::DwmGetColorizationColor(&currColor, &isOpaque);
@@ -419,7 +419,7 @@ void helix2d::Window::Update(float delta)
 
 	renderer->createDeviceResources();
 
-	//¸üĞÂ
+	//æ›´æ–°
 	if (this->bCreated)
 	{
 		Tick(delta);
@@ -608,10 +608,10 @@ void helix2d::Window::winControl(Window* window)
 
 		if (IntervalTime < (NewTime - FixedTime))
 		{
-			//´°¿Ú´´½¨
+			//çª—å£åˆ›å»º
 			window->create();
 
-			//¸üĞÂ
+			//æ›´æ–°
 			window->Update(duration_cast<microseconds>(NewTime - LastTime).count() / 1000.f / 1000.f);
 
 			FixedTime += IntervalTime;
@@ -623,11 +623,11 @@ void helix2d::Window::winControl(Window* window)
 		{
 			if (IntervalTime.count())
 			{
-				// ¼ÆËã¹ÒÆğÊ±³¤
+				// è®¡ç®—æŒ‚èµ·æ—¶é•¿
 				auto wait = duration_cast<nanoseconds>(IntervalTime - (NewTime - FixedTime));
 				if (wait > milliseconds(1))
 				{
-					// ¹ÒÆğÏß³Ì£¬ÊÍ·Å CPU Õ¼ÓÃ
+					// æŒ‚èµ·çº¿ç¨‹ï¼Œé‡Šæ”¾ CPU å ç”¨
 					std::this_thread::sleep_for(wait);
 				}
 			}

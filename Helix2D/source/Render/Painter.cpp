@@ -119,20 +119,20 @@ bool helix2d::Painter::removeModule(Module* pMod)
 
 helix2d::Painter* helix2d::Painter::findPainter(std::wstring name)
 {
-	//¿ÕÃû×Ö£¨Ä¬ÈÏÃû×Ö£©Ôò²»²éÕÒ
+	//ç©ºåå­—ï¼ˆé»˜è®¤åå­—ï¼‰åˆ™ä¸æŸ¥æ‰¾
 	if (name.empty())
 	{
 		return nullptr;
 	}
 
-	//¿ªÊ¼²éÕÒPainter
+	//å¼€å§‹æŸ¥æ‰¾Painter
 	auto it = std::find_if(painterList.begin(), painterList.end(),
 		[name](Painter* painter) {
 			return painter->getName() == name;
 		}
 	);
 
-	//¼ì²âÊÇ·ñÓĞ¸ÃPainter
+	//æ£€æµ‹æ˜¯å¦æœ‰è¯¥Painter
 	if (it == painterList.end())
 	{
 		return nullptr;
@@ -688,7 +688,7 @@ void helix2d::Painter::_render()
 		pTarget->GetTransform(&original);
 		matrix = matrix * original;
 
-		//ÉãÏñ»ú±ä»»
+		//æ‘„åƒæœºå˜æ¢
 		if (window->getCamera() != nullptr)
 		{
 			Painter* camera = window->getCamera();
@@ -773,7 +773,7 @@ void helix2d::Painter::_update(float delta)
 	}
 }
 
-void helix2d::Painter::_updateModule(float delta)	//±¸ÓÃ
+void helix2d::Painter::_updateModule(float delta)	//å¤‡ç”¨
 {
 	for (auto painter : painterList)
 	{
@@ -828,7 +828,7 @@ void helix2d::Painter::updateEnd(float delta)
 {
 	if (bEnableUpdate)
 	{
-		// Ä£ÄâÎïÌåÊÜµ½×èÁ¦×÷ÓÃ£¬¼õÂıËÙ¶È
+		// æ¨¡æ‹Ÿç‰©ä½“å—åˆ°é˜»åŠ›ä½œç”¨ï¼Œå‡æ…¢é€Ÿåº¦
 		float drag = 0.9f;
 		velocity *= 1.0f / (1.0f + delta * drag);
 		movePos(velocity * delta);
